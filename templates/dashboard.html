@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header { border-bottom: 2px solid #004a99; padding-bottom: 10px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #004a99; color: white; }
+        .logout { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2 style="margin:0; color:#004a99;">Welcome, {{ student[1] }}</h2>
+            <p>Reg No: <b>{{ student[2] }}</b> | Level: <b>{{ student[3] }}</b></p>
+        </div>
+        
+        <h3>Registered Courses (Level 200)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Code</th>
+                    <th>Course Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><b>{{ course.code }}</b></td>
+                    <td>{{ course.title }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="logout">LOGOUT</a>
+    </div>
+</body>
+</html>
+
